@@ -1,0 +1,58 @@
+body {
+	font-family: Georgia, serif;
+	background-color: #aaa;
+}
+
+#main {
+	width: 800px;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	margin: 20px auto;
+	min-height: 800px;
+	padding: 20px;
+	background-color: #eee;
+}
+
+.aside {
+	border: 1px solid #cca;
+	background-color: #eea;
+	border-radius: 5px;
+	padding: 10px 20px;
+}
+
+#main > h2 {
+	margin-top: 40px;
+}
+
+.aside h1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+li {
+	padding-bottom: 10px;
+}
+
+ul.sublist {
+	font-size: 14px;
+}
+
+p.unix-command {
+	background-color: #ddd;
+	padding: 10px 20px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+}
+
+p.unix-command::before {
+	content: '$ ';
+}
+
+span.unix-command {
+	/*background-color: #ddd;*/
+	/*padding: 10px 20px;*/
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 3px;
+}

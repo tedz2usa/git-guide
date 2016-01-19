@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Git Guide</title>
+		<link href='styles.css' rel='stylesheet'>
+	</head>
+	<body>
+		<div id='main'>
+			<h1>Guide for a Git Workflow</h1>
+			<p>This is a guide for a common team workflow in Git.</p>
+
+			<h2>Installation</h2>
+			<p>Go to <a href='https://git-scm.com/' target='_blank'>https://git-scm.com/</a> to install the latest version of Git.</p>
+			<div class='aside'>
+				<h1>Windows Installation Note</h1>
+				<p>Use all the default settings the installation wizard chooses for you, in particular:</p>
+				<ul class='sublist'>
+					<li><strong>Use Git from Git Bash only</strong> <em>-- we don't want to muddle up the Windows Command Prompt</em></li>
+					<li><strong>Checkout Windows-style, commit Unix-style line endings</strong> <em>-- this is so text files look correctly on your machine when you checkout a file, but don't interfere with Unix-style (Mac, Linux) operating systems.</em></li>
+				</ul>
+			</div>
+			
+
+			<h2>Terminal Console and Directory Navigation</h2>
+			<p>All git commands are entered via a text-based command-line interface. </p>
+			<p>Open up your terminal program:</p>
+			<ul>
+				<li><strong>Mac, Linux:</strong> The program is called "Termainal"</li>
+				<li><strong>Windows:</strong> The program is called "Git Bash"</li>
+			</ul>
+			<p>Enter the text command: "<span class='unix-command'>pwd</span>" (without quotes), then hit enter. This should return to you the current folder path you are located in.</p>
+			<p>Enter the text command: "<span class='unix-command'>ls</span>" (without quotes), then hit enter. This should return the list of files and folders in the current location.</p>
+			<p>You should rely on these two commands to help you make sure you're located in the right directory location.</p>
+			<p>Use "<span class='unix-command'>cd foldername</span>" to move into a desired folder.  Use "<span class='unix-command'>cd ..</span>" to move up, or outside of the current folder.</p>
+			<p>More useful terminal commands can be found here: <a href='http://mally.stanford.edu/~sr/computing/basic-unix.html' target='_blank'>http://mally.stanford.edu/~sr/computing/basic-unix.html</a></p>
+
+			<h2>The Git Workflow</h2>
+			<p>Once a team member has setup a repository on GitHub, and has added you (your GitHub username) as a collaborator to the project, you can download the project to your computer.</p>
+			<p>Login to <a href='https://github.com' target='_blank'>github.com</a>, and try to access the project page for the code repository.</p>
+			<p>If you have been added as a collaborator to the repository, you should be able to find the repository in the lower right-hand section of the home page, the box titled "Your repositories". Click on the link to the repository to access the project page.</p>
+
+			<h3>Downloading the Repository</h3>
+			<ol>
+				<li>In the terminal, use the "<span class='unix-command'>cd</span>" command to navigate to the folder where you want the repository to reside. You can use the command "<span class='unix-command'>mkdir foldername</span>", if you would like to make a new folder. In general, I like to make a folder called "codebases" where I download all my repositories.</li>
+				<li>Find the <strong>clone url</strong> for the git repository on the GitHub project page. GitHub lets you choose between the SSH url or the HTTPS, use the HTTPS url.</li>
+				<li>Run the command:
+					<p class='unix-command'>git clone https://github.com/myusername/my-project-name.git</p>
+					<p>The dollar sign should be ignored when you are entering terminal commands. (It is a convention in manuals to show a generic terminal prompt string, '$', when specifying unix commands.)</p>
+					<p>Note: You should be prompted for your github username and password if the repository was made private.</p>
+				</li>
+				<li>Use "<span class='unix-command'>cd my-project-name</span>" to move into the downloaded project directory. Note: you can press 'tab' after typing the first couple letters of a foldername or filename, and the terminal will auto-complete the rest of the file or foldername for you.</li>
+			</ol>
+
+		</div>
+	</body>
+</html>
