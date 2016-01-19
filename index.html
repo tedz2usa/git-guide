@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id='main'>
-			<h1>Guide for a Git Workflow</h1>
+			<h1>Guide for a Git Workflow<span class='author'> by Ted Zhu</span></h1>
 			<p>This is a guide for a common team workflow in Git.</p>
 
 			<h2>Installation</h2>
@@ -21,7 +21,7 @@
 			</div>
 			
 
-			<h2>Terminal Console and Directory Navigation</h2>
+			<h2>The Terminal and Directory Navigation</h2>
 			<p>All git commands are entered via a text-based command-line interface. </p>
 			<p>Open up your terminal program:</p>
 			<ul>
@@ -39,18 +39,110 @@
 			<p>Login to <a href='https://github.com' target='_blank'>github.com</a>, and try to access the project page for the code repository.</p>
 			<p>If you have been added as a collaborator to the repository, you should be able to find the repository in the lower right-hand section of the home page, the box titled "Your repositories". Click on the link to the repository to access the project page.</p>
 
-			<h3>Downloading the Repository</h3>
+			<h2>Downloading the Repository</h2>
 			<ol>
-				<li>In the terminal, use the "<span class='unix-command'>cd</span>" command to navigate to the folder where you want the repository to reside. You can use the command "<span class='unix-command'>mkdir foldername</span>", if you would like to make a new folder. In general, I like to make a folder called "codebases" where I download all my repositories.</li>
-				<li>Find the <strong>clone url</strong> for the git repository on the GitHub project page. GitHub lets you choose between the SSH url or the HTTPS, use the HTTPS url.</li>
-				<li>Run the command:
-					<p class='unix-command'>git clone https://github.com/myusername/my-project-name.git</p>
-					<p>The dollar sign should be ignored when you are entering terminal commands. (It is a convention in manuals to show a generic terminal prompt string, '$', when specifying unix commands.)</p>
+				<li>In the terminal, use the "<span class='unix-command'>cd</span>" command to navigate to the folder where you want to download the repository. (You can use the command "<span class='unix-command'>mkdir foldername</span>", if you would like to make any new folders). In general, I like to make a folder called "codebases" where I download all my repositories.</li>
+				<li>Find the <strong>clone url</strong> for the git repository on the GitHub project page. GitHub lets you choose between the SSH url or the HTTPS, be sure to use the HTTPS url.</li>
+				<li>Run the command (use your actual clone URL from step 2):
+					<p class='unix-command'>git clone https://github.com/sampleuser/sample-project-name.git</p>
+					<p>The dollar sign should not be typed when writing the actual terminal commands. The dollar sign represents the terminal prompt string, which will vary among users. (In manuals, the generic terminal prompt string, '$', is shown when specifying unix commands.)</p>
 					<p>Note: You should be prompted for your github username and password if the repository was made private.</p>
 				</li>
-				<li>Use "<span class='unix-command'>cd my-project-name</span>" to move into the downloaded project directory. Note: you can press 'tab' after typing the first couple letters of a foldername or filename, and the terminal will auto-complete the rest of the file or foldername for you.</li>
+				<li>Use "<span class='unix-command'>cd sample-project-name</span>" to move into the downloaded project directory. Note: you can press 'tab' after typing the first couple letters of a foldername or filename, and the terminal will auto-complete the rest of the file or foldername for you.</li>
 			</ol>
 
-		</div>
+			<h2>Checking your Status</h2>
+			<p>Just like the commands <span class='unix-command'>pwd</span> and <span class='unix-command'>ls</span>, the command <span class='unix-command'>git status</span> will be your go-to homebase command for seeing where you are in terms of the git repository, and changes you want to commit. I suggest you run the <span class='unix-command'>git status</span> command often, and in between other git commands, so you can see everything that's happening.</p>
+			<p class='unix-command'>git status</p>
+			<p>Since you've made no changes, you get a status message that reflects that:</p>
+			<p class='unix-output'>On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean</p>
+
+			<h2>Making Source Code Changes</h2>
+			<p>This is what we're all here for: making changes in our source code projects, then committing (adding) those changes into the repository, and finally letting your team members get your code modifications.</p>
+			<ol>
+				<li>
+					Add a new file to the project, e.g., a text file named "Ted_file.txt", that contains the content "Hello". You can use your favorite text editor to do that, or if you're lazy, you can use the following terminal command:
+					<p class='unix-command'>echo "Hello" > "Ted_file.txt"</p>
+				</li>
+				<li>
+					<p>You can use the <span class='unix-command'>ls</span> command to confirm there is now a new file called "Ted_file.txt", but more importantly, we should check <span class='unix-command'>git status</span> to see how our repository has been affected by the changes we made.</p>
+					<p class='unix-command'>git status</p>
+					<p>The result:</p>
+					<p class='unix-output'>On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        <span style='color: red;'>Ted_file.txt</span>
+
+nothing added to commit but untracked files present (use "git add" to track)</p>
+					<p>Any files we've added or modified get listed in red text in the terminal.</p>
+				</li>
+			</ol>
+			
+			<h2>Adding Source Code Changes to the Repository</h2>
+			<p>You need to add your code modifications to a staging area, (technically called the git index), first, before you can commit code to the repository. </p>
+			<ol>
+				<li>
+					<p>You do this by running one a <span class='unix-command'>git add</span> command.</p>
+					<p class='unix-command'>git add Ted_file.txt</p>
+					<p><em>Remember you can use the 'tab' key to autocomplete file or folder names in the terminal.</em></p>
+				</li>
+				<li>
+					As always, run <span class='unix-command'>git status</span> to see the state of the repository, and to help confirm to yourself you've been entering the right commands.
+					<p class='unix-command'>git status</p>
+					<p>The result:</p>
+					<p class='unix-output'>On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        <span style='color: green;'>new file:   Ted_file.txt</span></p>
+        			<p>What shows up in green is a listing of all the modified files that have been added to the staging area. You can run the <span class='unix-command'>git add</span> command several times to add as many modified files as you'd like to the staging area. Do a final <span class='unix-command'>git status</span> check to see that all the changes you want to commit are in green.</p>
+				</li>
+				<li>
+					<p>Finally, run the <span class='unix-command'>git commit</span> command to commit all the changes that were in the staging area:</p>
+					<p class='unix-command'>git commit -m "Added a test file."</p>
+					<p><em>If this is the first time you're using git to make a commit, the command above will fail, and you'll be first prompted to enter your name and email, before you can attempt to make the commit again. Run the given commands for adding your name and email, ensuring you use the name and email that matches the details of your GitHub account. Then you can try to run the commit command, and it should work this time.</em></p>
+					<p>The result of the successful commit operation:</p>
+					<p class='unix-output'>[master 44cf9ef] Added a test file.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Ted_file.txt</p>
+				</li>
+			</ol>
+
+			<div class='aside'>
+				<h1>About CRLF Line Ending Warning Messages</h1>
+				<p>If you are on a Windows machine, git will often times give warning messages, along the lines of: </p>
+				<p class='unix-output'>warning: LF will be replaced by CRLF in Ted_file.txt.
+The file will have its original line endings in your working directory.</p>
+				<p>These warning messages are safe to ignore. It is just git's way of saying it is taking care line ending conversions so that they look consistent on your Windows computer, and others' Unix (Mac, Linux) computers.</p>
+				<p>If you want these error messages to go away, on Windows computers, change the settings on your text editor to use Windows-style, or CRLF line endings  -- as opposed to Unix or Mac OS style endings. </p>
+			</div>
+
+			<h2>Syncing Your Commits with Other Team Members</h2>
+			<p>Now that you've added commits to your local copy of the code repository, you want to share those commits with the rest of your team. This is a two part process, where you:</p>
+			<ol>
+				<li>
+					First, pull all the latest commits published from your team members:
+					<p class='unix-command'>git pull</p>
+				</li>
+				<li>
+					Then, you can push, or publish your latest commits to everyone else:
+					<p class='unix-command'>git push</p>
+					<p>You'll be promted for your username and password each time you run these commands. I'm sure you'll get tired of this, so you'll be happy to know you can make git save your credential information, please see: <a href='https://help.github.com/articles/caching-your-github-password-in-git/' target='_blank'>https://help.github.com/articles/caching-your-github-password-in-git/</a> for the instructions on how to save your password.</p>
+					<p>Note: If you try to push before you pull, it'll sometimes work, but when it doesn't work, git will give you an error message telling you to first pull before pushing commits.</p>
+				</li>
+			</ol>
+
+			<h2>Merge Conflicts</h2>
+			<p>Sometimes you'll get marge conflicts during the pull operation, -- which is the operation that merges your team members' published modifications with your local codebase. This happens if you and another team member modified the same part of the same file. </p>
+			<p>You'll need to manually edit the affected source code files, to resolve the merge conflict before you can push your commits to everyone.</p>
+			<p>When you open an affected file, you'll notice on the affected lines, a bunch of <span class='unix-command'>>>>>>>></span>, <span class='unix-command'>=======</span>, and <span class='unix-command'><<<<<<<</span> symbols, separating the version of the modification your team member made, and the modification you tried to make. Replace those lines, and symbols with the version of code that's correct to use that resolves the source code modification conflict.</p>
+			<p>You'll be required to incorporate your conflict resolution modifications in a new commit, before you can finally push everything onto GitHub.</p>
+
+		</div> <!-- End <div id='main'> -->
 	</body>
 </html>

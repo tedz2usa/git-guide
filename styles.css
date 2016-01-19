@@ -1,6 +1,11 @@
 body {
 	font-family: Georgia, serif;
 	background-color: #aaa;
+	color: #222;
+}
+
+a, a:visited {
+	color: #05c;
 }
 
 #main {
@@ -9,24 +14,35 @@ body {
 	border-radius: 10px;
 	margin: 20px auto;
 	min-height: 800px;
-	padding: 20px;
+	padding: 20px 40px;
 	background-color: #eee;
 }
 
 .aside {
 	border: 1px solid #cca;
-	background-color: #eea;
+	background-color: #eeb;
 	border-radius: 5px;
 	padding: 10px 20px;
+}
+
+h1 .author {
+	font-size: 20px;
+	font-style: italic;
+	padding-left: 10px;
+	color: #888;
+}
+
+.aside h1 {
+	font-size: 18px;
+	text-align: center;
 }
 
 #main > h2 {
 	margin-top: 40px;
 }
 
-.aside h1 {
-	font-size: 18px;
-	text-align: center;
+#main > h3 {
+	margin-top: 30px;
 }
 
 li {
@@ -42,6 +58,15 @@ p.unix-command {
 	padding: 10px 20px;
 	font-family: "Lucida Console", Monaco, monospace;
 	font-size: 14px;
+	white-space: pre-line;
+}
+
+p.unix-output {
+	background-color: #ddd;
+	padding: 10px 20px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+	white-space: pre;
 }
 
 p.unix-command::before {
@@ -55,4 +80,5 @@ span.unix-command {
 	font-size: 14px;
 	font-weight: bold;
 	padding: 0px 3px;
+	white-space: nowrap;
 }
