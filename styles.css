@@ -2,6 +2,8 @@ body {
 	font-family: Georgia, serif;
 	background-color: #aaa;
 	color: #222;
+	margin: 0;
+	padding: 0;
 }
 
 a, a:visited {
@@ -12,10 +14,11 @@ a, a:visited {
 	width: 800px;
 	border: 1px solid #aaa;
 	border-radius: 10px;
-	margin: 20px auto;
+	margin: 50px auto;
 	min-height: 800px;
 	padding: 20px 40px;
 	background-color: #eee;
+	padding-bottom: 100px;
 }
 
 .aside {
@@ -80,5 +83,26 @@ span.unix-command {
 	font-size: 14px;
 	font-weight: bold;
 	padding: 0px 3px;
+	white-space: nowrap;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 10px;
+	border: 1px solid #aaa;
+}
+
+th {
+	text-align: left;
+}
+
+td:nth-child(1) {
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+	font-weight: bold;
+	padding-right: 20px;
 	white-space: nowrap;
 }

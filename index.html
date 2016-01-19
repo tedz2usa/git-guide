@@ -8,6 +8,7 @@
 		<div id='main'>
 			<h1>Guide for a Git Workflow<span class='author'> by Ted Zhu</span></h1>
 			<p>This is a guide for a common team workflow in Git.</p>
+			<p><a href='#workflow'>Skip to the Workflow</a></p>
 
 			<h2>Installation</h2>
 			<p>Go to <a href='https://git-scm.com/' target='_blank'>https://git-scm.com/</a> to install the latest version of Git.</p>
@@ -31,10 +32,9 @@
 			<p>Enter the text command: "<span class='unix-command'>pwd</span>" (without quotes), then hit enter. This should return to you the current folder path you are located in.</p>
 			<p>Enter the text command: "<span class='unix-command'>ls</span>" (without quotes), then hit enter. This should return the list of files and folders in the current location.</p>
 			<p>You should rely on these two commands to help you make sure you're located in the right directory location.</p>
-			<p>Use "<span class='unix-command'>cd foldername</span>" to move into a desired folder.  Use "<span class='unix-command'>cd ..</span>" to move up, or outside of the current folder.</p>
-			<p>More useful terminal commands can be found here: <a href='http://mally.stanford.edu/~sr/computing/basic-unix.html' target='_blank'>http://mally.stanford.edu/~sr/computing/basic-unix.html</a></p>
+			<p>Use "<span class='unix-command'>cd foldername</span>" to move into a desired folder.  Use "<span class='unix-command'>cd ..</span>" to move up, or outside of the current folder. More useful terminal commands can be found here: <a href='http://mally.stanford.edu/~sr/computing/basic-unix.html' target='_blank'>http://mally.stanford.edu/~sr/computing/basic-unix.html</a></p>
 
-			<h2>The Git Workflow</h2>
+			<h2 id='workflow'>The Git Workflow</h2>
 			<p>Once a team member has setup a repository on GitHub, and has added you (your GitHub username) as a collaborator to the project, you can download the project to your computer.</p>
 			<p>Login to <a href='https://github.com' target='_blank'>github.com</a>, and try to access the project page for the code repository.</p>
 			<p>If you have been added as a collaborator to the repository, you should be able to find the repository in the lower right-hand section of the home page, the box titled "Your repositories". Click on the link to the repository to access the project page.</p>
@@ -142,6 +142,84 @@ The file will have its original line endings in your working directory.</p>
 			<p>You'll need to manually edit the affected source code files, to resolve the merge conflict before you can push your commits to everyone.</p>
 			<p>When you open an affected file, you'll notice on the affected lines, a bunch of <span class='unix-command'>>>>>>>></span>, <span class='unix-command'>=======</span>, and <span class='unix-command'><<<<<<<</span> symbols, separating the version of the modification your team member made, and the modification you tried to make. Replace those lines, and symbols with the version of code that's correct to use that resolves the source code modification conflict.</p>
 			<p>You'll be required to incorporate your conflict resolution modifications in a new commit, before you can finally push everything onto GitHub.</p>
+
+			<h2>Summary of Commands</h2>
+			<h3>Basic UNIX Commands</h3>
+			<table>
+				<col>
+				<col>
+				<tr>
+					<th>Command</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>pwd</td>
+					<td>Get the folder path your located in.</td>
+				</tr>
+				<tr>
+					<td>ls</td>
+					<td>List the files and folders in your current location.</td>
+				</tr>
+				<tr>
+					<td>mkdir <em>foldername</em></td>
+					<td>Make a new folder in the current location.</td>
+				</tr>
+				<tr>
+					<td>cd <em>foldername</em></td>
+					<td>Move into the specified folder.</td>
+				</tr>
+				<tr>
+					<td>cd ..</td>
+					<td>Move up / move outside the folder, to the parent folder.</td>
+				</tr>
+			</table>
+
+			<h3>Basic Git Commands</h3>
+			<table>
+				<col>
+				<col>
+				<tr>
+					<th>Command</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td>git status</td>
+					<td>Get status of the repository. Run this command often.</td>
+				</tr>
+				<tr>
+					<td>git add <em>filename</em></td>
+					<td>Add the specefied file to the staging area.</td>
+				</tr>
+				<tr>
+					<td>git add .</td>
+					<td>Add all modified files to the staging area.</td>
+				</tr>
+				<tr>
+					<td>git commit -m "<em>message</em>"</td>
+					<td>Commit the staged changes to your local repository.</td>
+				</tr>
+				<tr>
+					<td>git pull</td>
+					<td>Pull other team members' published commits.</td>
+				</tr>
+				<tr>
+					<td>git push</td>
+					<td>Push your latest commits, so it is available to everyone on your team.</td>
+				</tr>
+				<tr>
+					<td>git diff</td>
+					<td>View a summary of the modified lines of code that you've made since the last commit.</td>
+				</tr>
+				<tr>
+					<td>git log</td>
+					<td>View a list of all the commits in your local repository. Press 'space' to scroll down the list. Press 'q' to exit the list.</td>
+				</tr>
+				<tr>
+					<td>git checkout <em>branchname</em></td>
+					<td>Checkout a different branch of the repository. Make sure you've first commited all your current code modifications, or you could lose them.</td>
+				</tr>
+				
+			</table>
 
 		</div> <!-- End <div id='main'> -->
 	</body>
